@@ -13,7 +13,17 @@
   training and test set (<b>/Orignal_dataset</b>). <br><br>
   <b>Manual Update</b><br>
   The merged training and test set created in part 2 required additional manual configuration, the IC50 column was moved to   
-  the last coloumn. The completely merged training and test set are located at <b>1.MutationDataMerge/Mutation+OldData/</b>
+  the last column. The completely merged training and test set are located at <b>1.MutationDataMerge/Mutation+OldData/</b>
   <li>Precily Training</li>
-  <li>Evaluation</li>
+  <li><b>Evaluation</b></li>
+  This folder provides the code to replicate the results from the paper. The code provided in this folder was also used to evaluate the performance of the newly trained models.  <br><br>
+  <b>Fig1c: </b> <br>
+  Assesses the performance of Precily models and outputs correlation values for each drug<br><br>
+  <b>Fig1d: </b> <br>
+  Evaluate model performance on test dataset<br><br>
+  <b>Fig2b: </b> <br>
+  Provides the code for assessing the efficiency of Precily on an independent dataset of scRNA-seq profiles of MDA-MB-231 breast cancer cells (dataset by Lee et al.)<br><br>
+  <b>Fig4b: </b> 
+  Evaluate the model for making predictions on PCa xenograft data.
+  
 </ol>
