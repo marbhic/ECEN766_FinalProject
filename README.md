@@ -5,7 +5,10 @@
 <p>This GitHub repository will provide all the required data and code to run the modified version of Precily. The following is the breakdown of how the project comes together</p>
 <ol>
   <li><b>Mutation Data Merged</b></li>
-  <p>This folder provides all the data and code to create the new test and trained dataset. Within the folder are the original dataset, the mutation data, the code to create the new dat</p>
+  <p>This folder provides all the data and code to create the new test and trained dataset. Within the folder are the original dataset, the mutation data, the code to create the new training and test set</p>
+  Mutation data merge with pathway scores and drug desrcipters was done in 3 steps.
+  1.MutationDataMerge/1.Mutation_DataFiltering.R 
+  This file takes mutation data provided by the DepMap portal in their 20Q1 release (CCLE_mutations.csv), trims unnecessary columns, and overlaps mutations with Cosmic Cancer Gene Cencus data (cancer_gene_census.csv) where it was first converted to GRCh38 format using the liftOver Library (hg19ToHg38.over.chain), and generates a table of size 1580 rows by 495 columns was created where each row indicated the cell line and indications if a certain mutation was present or not (FILTERD_DepMap_21Q2_Mutations_by_Cell.csv).
   <li>Precily Training</li>
   <li>Evaluation</li>
 </ol>
