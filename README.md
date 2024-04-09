@@ -42,7 +42,7 @@
   Evaluate model performance on test dataset<br><br>
   <b>Fig2b: </b> <br>
   Provides the code for assessing the efficiency of Precily on an independent dataset of scRNA-seq profiles of MDA-MB-231 breast cancer cells (dataset by Lee et al.)<br><br>
-  <b>Fig4b: </b> 
+  <b>Fig4b: </b> <br>
   Evaluate the model for making predictions on PCa xenograft data.
   
 </ol>
