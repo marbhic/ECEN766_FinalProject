@@ -40,10 +40,14 @@ Taj et al. MMDRP Model: https://github.com/LincolnSteinLab/MMDRP
   
   <li><b>/3.Evaluation/</b></li>
   This folder provides the code to replicate the results from the paper. The code provided in this folder was also used to evaluate the performance of the newly trained models.  <br><br>
+  <b>DrugsPred.R</b> <br>
+  File contains the primary function used for making predictions<br><br>
   <b>Fig1c: </b> <br>
   Assesses the performance of Precily models and outputs correlation values for each drug<br><br>
   <b>Fig1d: </b> <br>
   Evaluate model performance on test dataset<br><br>
+  <b>Fig2a: </b> <br>
+  Provides the code for assessing the efficiency of Precily on an independent dataset of scRNA-seq profiles (dataset by Kinker et al.)<br><br>
   <b>Fig2b: </b> <br>
   Provides the code for assessing the efficiency of Precily on an independent dataset of scRNA-seq profiles of MDA-MB-231 breast cancer cells (dataset by Lee et al.)<br><br>
   <b>Fig4b: </b> <br>
