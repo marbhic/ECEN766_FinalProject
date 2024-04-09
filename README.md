@@ -1,6 +1,10 @@
 # Predicting Drug Response in Breast Cancer Using Deep Learning Neural Networks
 
-<h2>Overview</h2>
+<h2>Overview</h2><br>
+In a study by Chawla et al., they suggested a deep learning model called Precily that incorporated various data including cell line data, pathways scores, and drug descriptor data in order to develop an accurate drug response prediction model. In this project, additional mutation data was incorporated to further improve drug response prediction through a similar approach taken by Taj et al. in their MMDRP model. The original deep learning Precily model was updated to include the additional mutation data as additional features and was re-trained to generate an updated trained deep learning model. <br> <br>
+
+Chawla et al. original Precily Model: https://github.com/SmritiChawla/Precily <br>
+Taj et al. MMDRP Model: https://github.com/LincolnSteinLab/MMDRP 
 <h2>Code Overview</h2>
 <p>This GitHub repository will provide all the required data and code to run the modified version of Precily. The following is the breakdown of how the project comes together</p>
 <ol>
