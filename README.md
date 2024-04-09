@@ -13,7 +13,7 @@
   training and test set (<b>/Orignal_dataset</b>). <br><br>
   <b>Manual Update</b><br>
   The merged training and test set created in part 2 required additional manual configuration, the IC50 column was moved to   
-  the last coloumn. 
+  the last coloumn. The completely merged training and test set are located at <b>1.MutationDataMerge/Mutation+OldData/</b>
   <li>Precily Training</li>
   <li>Evaluation</li>
 </ol>
