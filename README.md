@@ -8,8 +8,8 @@ Taj et al. MMDRP Model: https://github.com/LincolnSteinLab/MMDRP
 <h2>Code Overview</h2>
 <p>This GitHub repository will provide all the required data and code to run the modified version of Precily. The following is the breakdown of how the project comes together</p>
 <ol>
-  <li><b>/0.EnvironmentSetup/</b></li> <br><br>
-  Contains Environment Setup Script <br><br>
+  <li><b>/0.EnvironmentSetup/</b></li> <br>
+  Contains environment setup script. <br><br>
   <li><b>/1.MutationDataMerge/</b></li>
   <p>This folder provides all the data and code to create the new test and trained dataset. Within the folder are the original dataset, the mutation data, the code to create the new training and test set. Mutation data merge with pathway scores and drug descriptors was done in 3 steps. <br> </p>
   <b>1.Mutation_DataFiltering.R</b> <br>
