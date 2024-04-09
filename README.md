@@ -11,7 +11,7 @@
   <b>1.MutationDataMerge/2.DataSetMerge.py</b><br>
   This file merges the mutation matrix created in 1.Mutation_DataFiltering.R with the original Pathway+DrugDescriptors   
   training and test set (<b>/Orignal_dataset</b>). <br><br>
-  <b>Manual Update</b>
+  <b>Manual Update</b><br>
   The merged training and test set created in part 2 required additional manual configuration, the IC50 column was moved to   
   the last coloumn. 
   <li>Precily Training</li>
