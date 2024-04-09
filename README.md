@@ -4,7 +4,7 @@
 <h2>Code Overview</h2>
 <p>This GitHub repository will provide all the required data and code to run the modified version of Precily. The following is the breakdown of how the project comes together</p>
 <ol>
-  <li><b>1.MutationDataMerge</b></li>
+  <li><b>/1.MutationDataMerge</b></li>
   <p>This folder provides all the data and code to create the new test and trained dataset. Within the folder are the original dataset, the mutation data, the code to create the new training and test set. Mutation data merge with pathway scores and drug descriptors was done in 3 steps. <br> </p>
   <b>1.MutationDataMerge/1.Mutation_DataFiltering.R</b> <br>
   This file takes mutation data provided by the DepMap portal in their 20Q1 release (<b>CCLE_mutations.csv</b>), trims unnecessary columns, and overlaps mutations with Cosmic Cancer Gene Cencus data (<b>cancer_gene_census.csv</b>) where it was first converted to GRCh38 format using the liftOver Library (<b>hg19ToHg38.over.chain</b>) and generates a table of size 1580 rows by 495 columns where each row indicated the cell line and indications if a certain mutation was present or not (<b>FILTERD_DepMap_21Q2_Mutations_by_Cell.csv</b>). <br><br>
@@ -14,7 +14,22 @@
   <b>Manual Update</b><br>
   The merged training and test set created in part 2 required additional manual configuration, the IC50 column was moved to   
   the last column. The completely merged training and test set are located at <b>1.MutationDataMerge/Mutation+OldData/</b>
-  <li>Precily Training</li>
+  <br><br>
+  <li><b>/2.PrecilyTraining</b></li>
+  This folder contains the python script used to create and train the modified precily, along with pre-trained models.<br><br>
+  
+  <b>Precily_Training.py</b> <br>
+  This python script creates and trains the modified Precily model. This is done by first tuning several hyper-parameters through the Keras Tuner library through the use of a 
+  5-fold cross validation on the training set for 30 epochs resulting in 5 models, then the models are fitted to the whole training set. The hyper-parameters that were tuned 
+  are listed below:
+  <ul>
+    <li>Number of layers (2-6)</li>
+    <li>Number of Neurons (128-256, step size 4)</li>
+    <li>Drop Out Rate (.1, .2, .3, .4, .5)</li>
+   <li>Learning Rate (1e-3, 1e-4, 1e-5)</li>
+  </ul> <br>
+  <b>/PrecilyOriginalPretrainedModels</b><br>
+  The orignal Pretrained Precily models are contain here.
   <li><b>Evaluation</b></li>
   This folder provides the code to replicate the results from the paper. The code provided in this folder was also used to evaluate the performance of the newly trained models.  <br><br>
   <b>Fig1c: </b> <br>
