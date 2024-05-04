@@ -44,6 +44,8 @@ Taj et al. MMDRP Model: https://github.com/LincolnSteinLab/MMDRP
   This folder provides the code to replicate the results from the paper. The code provided in this folder was also used to evaluate the performance of the newly trained models.  <br><br>
   <b>DrugsPred.R</b> <br>
   File contains the primary function used for making predictions<br><br>
+  <b>PrintModel.py</b> <br>
+  Imports keras models and prints out inner stucture<br><br>
   <b>Fig1c: </b> <br>
   Assesses the performance of Precily models and outputs correlation values for each drug<br><br>
   <b>Fig1d: </b> <br>
