@@ -47,9 +47,9 @@ Taj et al. MMDRP Model: https://github.com/LincolnSteinLab/MMDRP
   <b>Fig1c: </b> <br>
   Assesses the performance of Precily models and outputs correlation values for each drug<br><br>
   <b>Fig1d: </b> <br>
-  Evaluate model performance on test dataset<br><br>
+  Evaluate model performance on entire test dataset and filtered test dataset. Evaluation files for mutatation data trained model are contained in folders titled "New". Evaluation files for original trained model are contained in folders titled "Old".<br><br>
   <b>Fig2a: </b> <br>
-  Provides the code for assessing the efficiency of Precily on an independent dataset of scRNA-seq profiles (dataset by Kinker et al.)<br><br>
+  Provides the code for assessing the efficiency of Precily on an independent dataset of scRNA-seq profiles (dataset by Kinker et al.). Evaluation files for mutatation data trained model are contained in folder titled "New". Evaluation files for original trained model are contained in folder titled "Old".<br><br>
   <b>Fig2b: </b> <br>
   Provides the code for assessing the efficiency of Precily on an independent dataset of scRNA-seq profiles of MDA-MB-231 breast cancer cells (dataset by Lee et al.)<br><br>
   <b>Fig4b: </b> <br>
