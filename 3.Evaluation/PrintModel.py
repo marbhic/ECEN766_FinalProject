@@ -1,4 +1,4 @@
-##Importing libraries1923
+##Importing libraries
 import numpy as np
 import pandas as pd
 import keras_tuner as kt
@@ -10,20 +10,21 @@ tf.config.threading.set_intra_op_parallelism_threads(1)
 np.random.seed(2)
 
 ##loading 90% Training data
-train_set = pd.read_csv('C:\\Users\\marbhic\\Downloads\\Precily-main\\Precily-main\\Fig1\\Fig1c\\Fig1c_Precily_pathways\\training_data_attempt2.csv')
-directory = 'C:\\Users\\marbhic\\Downloads\\Precily-main\\Precily-main\\Fig1\\Fig1c\\Fig1c_Precily_pathways\\NewDataTest'
-project_name = 'Pathways'
+# train_set = pd.read_csv('Training_data.csv')
+# directory = 'Path to directory'
+# project_name = 'Pathways'
 
 
 ##Definining hyper parameters 
-layers_range = (2, 6)
-units_range = (128, 256, 4)
-lr_values = [1e-3,1e-4,1e-5]
+# layers_range = (2, 6)
+# units_range = (128, 256, 4)
+# lr_values = [1e-3,1e-4,1e-5]
 
 ##Define model
+'''
 def model_builder(hp):
   model = keras.Sequential()
-  model.add(keras.layers.Dense(1923, input_dim = 1923, activation = 'relu'))
+  model.add(keras.layers.Dense(1429, input_dim = 1429, activation = 'relu'))
   model.add(keras.layers.Dense(units = 512, activation = 'relu'))
   model.add(
             keras.layers.Dropout(
@@ -41,22 +42,20 @@ def model_builder(hp):
                                 min_value=units_range[0], max_value=units_range[1], 
                                 step=units_range[2]), activation='relu'))
     model.add(
-            keras.layers.Dropout(
-                hp.Float(
-                    'dropout',
-                    min_value=0.1,
-                    max_value=0.5,
-                    default=0.1,
-                    step=0.1)
+       keras.layers.Dropout(
+          hp.Float(
+             'dropout',
+             min_value=0.1,
+             max_value=0.5,
+             default=0.1,
+             step=0.1)
             )
-        )
-
-    
+    )
     model.add(keras.layers.Dense(1))
     hp_learning_rate = hp.Choice('learning_rate', values=lr_values)
     model.compile(optimizer=keras.optimizers.Adam(learning_rate=hp_learning_rate),
                 loss='mean_squared_error') 
-  return model
+    return model
 
 ##Perfrom cell line wise split
 #def cell_line_split(data, k):
@@ -74,7 +73,7 @@ def model_builder(hp):
   #train = pd.DataFrame(train)
   test = pd.DataFrame(test)
   #return train, test
-
+'''
 ##If complete data is being used use perform cell line wise split using cell_line_split function
 #train_set, test_set = cell_line_split(df, 0.9)
 #df = None
@@ -82,10 +81,11 @@ def model_builder(hp):
 #test_set.to_csv("Test_data.csv",index=False)
 #test_set = None
 
-CL_x = train_set[train_set.columns[0]].unique()
-CL_x = list(CL_x)
+# CL_x = train_set[train_set.columns[0]].unique()
+# CL_x = list(CL_x)
 
 ##Perform hyperparameter tuning
+'''
 for i in range(5):
     A = set( CL_x[:i*len(CL_x)//5] + CL_x[(i+1)*len(CL_x)//5:] )
     B = set( CL_x[i*len(CL_x)//5:(i+1)*len(CL_x)//5] )
@@ -126,33 +126,33 @@ for i in range(5):
     # Build the model with the optimal hyperparameters
     h_model = tuner.hypermodel.build(best_hp)
     h_model.fit(X_train, Y_train, epochs=50, verbose = 1, batch_size = 128, validation_data = (X_val, Y_val))
-    h_model.save('C:\\Users\\marbhic\\Downloads\\Precily-main\\Precily-main\\Fig1\\Fig1c\\Fig1c_Precily_pathways\\precily_cv_'+str(i+1)+'.hdf5')
-    h_model.save('C:\\Users\\marbhic\\Downloads\\Precily-main\\Precily-main\\Fig1\\Fig1c\\Fig1c_Precily_pathways\\precily_cv_'+str(i+1)+'.keras')
-    #h_model = None
-
-    # Train using whole model
-    train2 = pd.read_csv("C:\\Users\\marbhic\\Downloads\\Precily-main\\Precily-main\\Fig1\\Fig1c\\Fig1c_Precily_pathways\\training_data_attempt2.csv")
-    X_train1 = train2.iloc[: , 2:-1]
-    Y_train1 = train2.iloc[: , -1:]
-    h_model.fit(X_train1, Y_train1, verbose = 1, epochs=50, batch_size = 128)
-    h_model.save('C:\\Users\\marbhic\\Downloads\\Precily-main\\Precily-main\\Fig1\\Fig1c\\Fig1c_Precily_pathways\\Model'+str(i+1)+'.hdf5')
-    h_model.save('C:\\Users\\marbhic\\Downloads\\Precily-main\\Precily-main\\Fig1\\Fig1c\\Fig1c_Precily_pathways\\Model'+str(i+1)+'.keras')
-    
-    
+    h_model.save('precily_cv_'+str(i+1)+'.hdf5')
+    h_model = None
+'''
 
 ##############################Training of complete dataset using hyper-tuned models###################################
 ######################################################################################################################
 
-# ###Load training data
-# train = pd.read_csv("C:\\Users\\marbhic\\Downloads\\Precily-main\\Precily-main\\Fig1\\Fig1c\\Fig1c_Precily_pathways\\training_data_attempt2.csv")
+###Load training data
+# train = pd.read_csv("Training_data.csv")
 # X_train = train.iloc[: , 2:-1]
 # Y_train = train.iloc[: , -1:]
 
-# ###Load hyper-tuned models obtained from the previous step and fit training data
-# for i in range(5):
-#     h_model = tf.keras.models.load_model("C:\\Users\\marbhic\\Downloads\\Precily-main\\Precily-main\\"+'precily_cv_'+str(i+1)+'.hdf5')
-#     print(h_model)
-#     print("hi")
-#     h_model.fit(X_train, Y_train, verbose = 1, epochs=50, batch_size = 128)
-#     h_model.save('Model'+str(i+1)+'.hdf5')
-#     h_model = None
+###Load hyper-tuned models obtained from the previous step and fit training data
+'''
+for i in range(5):
+    h_model = tf.keras.models.load_model('precily_cv_'+str(i+1)+'.hdf5')
+    h_model.fit(X_train, Y_train, verbose = 1, epochs=50, batch_size = 128)
+    h_model.save('Model'+str(i+1)+'.hdf5')
+    h_model = None
+'''
+
+for i in range(5):
+    print("Reading Model")
+    h_model = tf.keras.models.load_model('E:\\042224_marielle_models\\Model'+str(i+1)+'.hdf5')
+    h_model.summary()
+
+    for layer in h_model.layers:
+        if isinstance(layer, tf.keras.layers.Dense):
+            print("Number of neurons in dense layer:", layer.units)
+    #h_model.get_config()
